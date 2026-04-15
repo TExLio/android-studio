@@ -1,0 +1,33 @@
+package com.info.clonedatacalculationsxx
+
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+
+class ActivityCone : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_cone)
+
+        val btnData = findViewById<Button>(R.id.btnData)
+        val btnCalc = findViewById<Button>(R.id.btnCalc)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame, fragment_data())
+            .commit()
+
+        btnData.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame, fragment_data())
+                .commit()
+        }
+
+        btnCalc.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame, fragment_calculations())
+                .commit()
+
+        }
+    }
+}
