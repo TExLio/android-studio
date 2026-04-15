@@ -1,0 +1,29 @@
+package com.info.clonedatacalculationsxx
+
+import android.app.AlertDialog
+import android.app.Dialog
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.Button
+import androidx.fragment.app.DialogFragment
+
+
+class dialog_custom : DialogFragment() {
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+        val view = LayoutInflater.from(context).inflate(R.layout.dialog_custom, null)
+
+        val btnOk = view.findViewById<Button>(R.id.btnOk)
+
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(view)
+            .create()
+
+        btnOk.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        return dialog
+    }
+}
